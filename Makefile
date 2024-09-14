@@ -2,7 +2,11 @@ default: help
 ##
 # Project Targets
 ##
-.PHONY: build # Build the full project: Runs mvn-clean mvn-build docker-build and docker-up
+.PHONY: install # Builds and installs symbolic link to the binary
+install: build
+	@mkdir -p ~/.local/bin
+	@ln -sf $(PWD)/app/lichess ~/.local/bin/lichess
+
 build: 
 	@./gradlew --warning-mode none shadowJar
 

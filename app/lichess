@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Path to the Java application JAR file
+JAR_PATH="./app/build/libs/lichess.jar"
+
+# Run the Java application
+java -jar "$JAR_PATH"
+
+# # Check the exit status
+# if [ $? -eq 0 ]; then
+#     echo "Import completed successfully."
+# fi
