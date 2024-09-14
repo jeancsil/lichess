@@ -2,8 +2,6 @@ package com.jeancsil.lichess;
 
 import chariot.Client;
 
-// import java.util.concurrent.CompletableFuture;
-
 public class LichessService {
     private final Client client;
 
@@ -12,6 +10,8 @@ public class LichessService {
     }
 
     public String importGame(String pgn) {
-        return client.games().importGame(pgn).mapOne(t -> t.id()).get();
+        var gameId = client.games().importGame(pgn).mapOne(t -> t.id()).get();
+        System.out.println("https://lichess.org/" + gameId);
+        return gameId;
     }
 }
