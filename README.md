@@ -9,6 +9,13 @@ This is a simple tool to import a PGN file into Lichess. It uses the Lichess API
 - [GNU Make 3.81](https://www.gnu.org/software/make/) | `brew install make`
 - [Gradle 8.10.1](https://gradle.org/install/) | `brew install gradle`
 
+## Configuration
+
+You must create a `.lichess.token` file in the root of the project with the Lichess API token.  
+
+```text
+lip_exampleT0kenF0rL1chess123
+```
 
 ## Installation
 
@@ -17,6 +24,7 @@ make install
 ```
 
 ## Usage
+
 Copy the PGN from chess.com, or other source, and run the command:
 
 ```bash
