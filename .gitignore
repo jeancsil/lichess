@@ -1,0 +1,15 @@
+# Gradle
+.gradle
+
+# Build
+build
+
+# Project Files
+.idea
+.vscode
+
+# Binary Files
+bin
+
+# Lichess
+.lichess-token
