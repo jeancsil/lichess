@@ -4,17 +4,16 @@ This is a simple tool to import a PGN file into Lichess. It uses the Lichess API
 
 ## Prerequisites
 
-- [Java 21](https://formulae.brew.sh/cask/temurin@21#default) | `brew install --cask temurin@21`
+- [Docker](https://www.docker.com/get-started)
 - [Lichess.org API Token](https://lichess.org/account/oauth/token) | [+info](https://lichess.org/api#section/Authentication)
 - [GNU Make 3.81](https://www.gnu.org/software/make/) | `brew install make`
-- [Gradle 8.10.1](https://gradle.org/install/) | `brew install gradle`
 
 ## Configuration
 
-You must create a `.lichess.token` file in the root of the project with the Lichess API token.  
+Set your Lichess API token as an environment variable:
 
-```text
-lip_exampleT0kenF0rL1chess123
+```bash
+export LICHESS_TOKEN=lip_exampleT0kenF0rL1chess123
 ```
 
 ## Installation
@@ -25,15 +24,24 @@ make install
 
 ## Usage
 
-Copy the PGN from chess.com, or other source, and run the command:
+1. Copy a valid PGN (Portable Game Notation) for a chess game to your clipboard.
+
+2. Ensure your `LICHESS_TOKEN` environment variable is set:
+
+   ```bash
+   export LICHESS_TOKEN=your_lichess_api_token_here
+   ```
+
+3. Run the `lichess` command:
+
+   ```bash
+   lichess
+   ```
+
+   The application will read the PGN from your clipboard, save it to a temporary file, import it to Lichess, and provide you with the URL of the imported game.
+
+Example output:
 
 ```bash
-lichess
-```
-
-The output will be the URL of the game in Lichess.
-e.g.
-
-```bash
-https://lichess.org/xXXXxXXx
+https://lichess.org/xX
 ```

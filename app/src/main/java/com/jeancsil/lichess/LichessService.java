@@ -1,5 +1,7 @@
 package com.jeancsil.lichess;
 
+import com.jeancsil.lichess.utils.ConsoleLogger;
+
 import chariot.Client;
 
 public class LichessService {
@@ -11,7 +13,7 @@ public class LichessService {
 
     public String importGame(String pgn) {
         var gameId = client.games().importGame(pgn).mapOne(t -> t.id()).get();
-        System.out.println("https://lichess.org/" + gameId);
+        ConsoleLogger.info("Game imported successfully: https://lichess.org/" + gameId);
         return gameId;
     }
 }

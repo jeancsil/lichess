@@ -10,6 +10,3 @@ build
 
 # Binary Files
 bin
-
-# Lichess
-.lichess-token
