@@ -15,6 +15,11 @@ if [ -z "$PGN" ]; then
     exit 1
 fi
 
+# Check if PGN has headers, if not, add minimal headers
+if [[ ! $PGN =~ ^\[Event ]]; then
+    PGN="[Event \"?\"]\n[Site \"?\"]\n[Date \"????.??.??\"]\n[Round \"?\"]\n[White \"?\"]\n[Black \"?\"]\n[Result \"*\"]\n\n$PGN"
+fi
+
 # Run the Docker command
 echo "Running Docker command..."
 docker run -i --rm \
