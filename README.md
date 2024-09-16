@@ -35,7 +35,7 @@ export LICHESS_TOKEN=lip_exampleT0kenF0rL1chess123
 
 1. Copy a valid PGN (Portable Game Notation) for a chess game to your clipboard.
 e.g.:
-![alt text](docs/PGN_chesscom.png)
+![alt text](docs/PGN-chesscom.png)
 
 2. Ensure your `LICHESS_TOKEN` environment variable is set as described earlier.
 
