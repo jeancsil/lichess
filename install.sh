@@ -2,11 +2,31 @@
 
 set -e
 
-# Check if Docker is installed, if not, provide instructions
-if ! command -v docker &> /dev/null; then
+# Function to check if a command exists
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+# Check if Docker is installed
+if ! command_exists docker; then
     echo "Docker not found. Please install Docker before proceeding."
     echo "Visit https://docs.docker.com/get-docker/ for installation instructions."
     exit 1
+fi
+
+# Check for pbpaste on macOS
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    if ! command_exists pbpaste; then
+        echo "pbpaste not found. This is required for clipboard functionality on macOS."
+        echo "It should be installed by default. If it's missing, run brew install pbcopy."
+        exit 1
+    fi
+# elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+#     if ! command_exists xclip && ! command_exists xsel; then
+#         echo "Neither xclip nor xsel found. One of these is required for clipboard functionality on Linux."
+#         echo "Please install xclip or xsel using your distribution's package manager."
+#         exit 1
+#     fi
 fi
 
 # Pull the Docker image

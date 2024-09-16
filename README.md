@@ -1,12 +1,11 @@
 # Lichess PGN Importer
 
-This is a simple tool to import a PGN file into Lichess. It uses the Lichess API to import the game and then prints the URL of the game.
+This is a simple tool to import a PGN file into Lichess. It uses the Lichess API to import the game and then prints the URL of the game.  After that, you can use the `lichess` command to open the game in your browser and request a computer analysis.
 
 ## Prerequisites
 
 - [Docker](https://www.docker.com/get-started)
 - [Lichess.org API Token](https://lichess.org/account/oauth/token) | [+info](https://lichess.org/api#section/Authentication)
-<!-- - [GNU Make 3.81](https://www.gnu.org/software/make/) | `brew install make` -->
 
 ## Quick Install
 
@@ -18,7 +17,7 @@ curl -sSL https://raw.githubusercontent.com/jeancsil/lichess/main/install.sh | b
 
 This script will:
 
-1. Install Docker if not already installed
+1. Check if the necessary executables are installed (Docker, pbpaste)
 2. Pull the necessary Docker image
 3. Install `pbpaste` if not present (for clipboard functionality on macOS)
 4. Set up the `lichess` command for easy execution
