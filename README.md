@@ -6,7 +6,27 @@ This is a simple tool to import a PGN file into Lichess. It uses the Lichess API
 
 - [Docker](https://www.docker.com/get-started)
 - [Lichess.org API Token](https://lichess.org/account/oauth/token) | [+info](https://lichess.org/api#section/Authentication)
-- [GNU Make 3.81](https://www.gnu.org/software/make/) | `brew install make`
+<!-- - [GNU Make 3.81](https://www.gnu.org/software/make/) | `brew install make` -->
+
+## Quick Install
+
+Run this command to install the Lichess PGN Importer:
+
+```bash
+curl -sSL https://raw.githubusercontent.com/jeancsil/lichess/main/install.sh | bash
+```
+
+This script will:
+
+1. Install Docker if not already installed
+2. Pull the necessary Docker image
+3. Install `pbpaste` if not present (for clipboard functionality on macOS)
+4. Set up the `lichess` command for easy execution
+
+Note: You may need to use `sudo` for the installation if you don't have the necessary permissions.
+
+After installation, make sure to set your Lichess API token as an environment variable:
+
 
 ## Configuration
 
