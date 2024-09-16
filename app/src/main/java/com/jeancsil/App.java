@@ -7,7 +7,7 @@ import com.jeancsil.lichess.utils.ConsoleLogger;
 
 public class App {
     public static void main(String[] args) {
-        ConsoleLogger.info("Application started");
+        ConsoleLogger.debug("Application started");
         
         String pgn = System.getenv("PGN");
         ConsoleLogger.info("Received PGN: " + (pgn != null ? pgn : "null"));

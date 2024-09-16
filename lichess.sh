@@ -2,8 +2,6 @@
 
 set -e  # Exit immediately if a command exits with a non-zero status.
 
-echo "Running lichess import..."
-
 # Get PGN from clipboard
 PGN=$(pbpaste)
 
@@ -14,10 +12,7 @@ if [ -z "$PGN" ] || [[ ! $PGN =~ ^\[Event ]]; then
 fi
 
 # Run the Docker command
-echo "Running Docker command..."
 docker run -i --rm \
     -e LICHESS_TOKEN="$LICHESS_TOKEN" \
     -e PGN="$PGN" \
     jeancsil/lichess:latest
-
-echo "Import completed."
