@@ -35,8 +35,11 @@ docker pull jeancsil/lichess:latest
 # Create ~/.local/bin if it doesn't exist
 mkdir -p ~/.local/bin
 
-# Download the lichess.sh script
-curl -sSL https://raw.githubusercontent.com/jeancsil/lichess/main/lichess.sh -o ~/.local/bin/lichess
+# Download the lichess.sh script and replace placeholders
+curl -sSL https://raw.githubusercontent.com/jeancsil/lichess/main/lichess.sh | \
+sed -e "s|{{IMAGE_NAME}}|jeancsil/lichess|g" \
+    -e "s|{{VERSION}}|latest|g" \
+> ~/.local/bin/lichess
 
 # Make the script executable
 chmod +x ~/.local/bin/lichess
