@@ -19,7 +19,7 @@ mkdir -p ~/.local/bin
 curl -sSL https://raw.githubusercontent.com/jeancsil/lichess/main/lichess.sh -o ~/.local/bin/lichess
 
 # Make the script executable
-chmod +x ~/.local/bin/lichess.sh
+chmod +x ~/.local/bin/lichess
 
 echo "Lichess PGN Importer installed successfully!"
 echo "Please ensure ~/.local/bin is in your PATH."
