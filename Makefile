@@ -23,7 +23,7 @@ publish: build
 .PHONY: install # Installs the Docker-based application
 install: build
 	@mkdir -p ~/.local/bin
-	@sed 's|{{IMAGE_NAME}}|$(IMAGE_NAME)|g; s|{{VERSION}}|$(VERSION)|g' lichess.sh > ~/.local/bin/lichess
+	@sed -e 's|{{IMAGE_NAME}}|$(IMAGE_NAME)|g' -e 's|{{VERSION}}|$(VERSION)|g' lichess.sh > ~/.local/bin/lichess
 	@chmod +x ~/.local/bin/lichess
 	@echo "Installation complete. The 'lichess' command is now available."
 
