@@ -21,7 +21,7 @@ This script will:
 2. Pull the necessary Docker image
 3. Set up the `lichess` command for easy execution
 
-After installation, make sure to set your Lichess API token as an environment variable:
+After installation, make sure to set your Lichess API token as an environment variable.
 
 ## Configuration
 
@@ -51,4 +51,23 @@ Example output:
 
 ```bash
 Game imported successfully: https://lichess.org/xXxYyYZzZ
+```
+
+## Uninstall
+
+To uninstall the Lichess PGN Importer, you can use the following command:
+
+```bash
+curl -sSL https://raw.githubusercontent.com/jeancsil/lichess/main/uninstall.sh | bash
+```
+
+This script will:
+
+1. Remove the `lichess` command from your system
+2. Remove the Docker images used by the application
+
+Alternatively, if you have cloned the repository, you can run:
+
+```bash
+make uninstall
 ```
