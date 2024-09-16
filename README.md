@@ -17,15 +17,11 @@ curl -sSL https://raw.githubusercontent.com/jeancsil/lichess/main/install.sh | b
 
 This script will:
 
-1. Check if the necessary executables are installed (Docker, pbpaste)
+1. Check if the necessary executables are installed (`Docker`, `pbpaste`)
 2. Pull the necessary Docker image
-3. Install `pbpaste` if not present (for clipboard functionality on macOS)
-4. Set up the `lichess` command for easy execution
-
-Note: You may need to use `sudo` for the installation if you don't have the necessary permissions.
+3. Set up the `lichess` command for easy execution
 
 After installation, make sure to set your Lichess API token as an environment variable:
-
 
 ## Configuration
 
@@ -35,21 +31,11 @@ Set your Lichess API token as an environment variable:
 export LICHESS_TOKEN=lip_exampleT0kenF0rL1chess123
 ```
 
-## Installation
-
-```bash
-make install
-```
-
 ## Usage
 
 1. Copy a valid PGN (Portable Game Notation) for a chess game to your clipboard.
 
-2. Ensure your `LICHESS_TOKEN` environment variable is set:
-
-   ```bash
-   export LICHESS_TOKEN=your_lichess_api_token_here
-   ```
+2. Ensure your `LICHESS_TOKEN` environment variable is set as described earlier.
 
 3. Run the `lichess` command:
 
@@ -62,5 +48,5 @@ make install
 Example output:
 
 ```bash
-https://lichess.org/xX
+Game imported successfully: https://lichess.org/xXxYyYZzZ
 ```
