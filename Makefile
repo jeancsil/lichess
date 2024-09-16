@@ -23,9 +23,16 @@ publish: build
 .PHONY: install # Installs the Docker-based application
 install: build
 	@mkdir -p ~/.local/bin
-	@sed 's|{{IMAGE_NAME}}|$(IMAGE_NAME)|g; s|{{VERSION}}|$(VERSION)|g' lichess_import.sh > ~/.local/bin/lichess
+	@sed 's|{{IMAGE_NAME}}|$(IMAGE_NAME)|g; s|{{VERSION}}|$(VERSION)|g' lichess.sh > ~/.local/bin/lichess
 	@chmod +x ~/.local/bin/lichess
 	@echo "Installation complete. The 'lichess' command is now available."
+
+.PHONY: uninstall # Uninstalls the Docker-based application
+uninstall:
+	@rm -f ~/.local/bin/lichess
+	@docker rmi $(IMAGE_NAME):$(VERSION) 2>/dev/null || true
+	@docker rmi $(IMAGE_NAME):latest 2>/dev/null || true
+	@echo "Uninstallation complete. The 'lichess' command has been removed."
 
 ##
 # Help target
