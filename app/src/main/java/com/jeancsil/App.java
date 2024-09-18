@@ -7,11 +7,7 @@ import com.jeancsil.lichess.utils.ConsoleLogger;
 
 public class App {
     public static void main(String[] args) {
-        ConsoleLogger.debug("Application started");
-        
-        String pgn = System.getenv("PGN");
-        ConsoleLogger.info("Received PGN: " + (pgn != null ? pgn : "null"));
-        
+        var pgn = System.getenv("PGN");
         if (pgn == null || pgn.isEmpty()) {
             ConsoleLogger.error("PGN environment variable is not set or is empty");
             System.exit(1);
