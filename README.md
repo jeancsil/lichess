@@ -1,7 +1,7 @@
 # Lichess PGN Importer
 
 Tool to import a PGN (Portable Game Notation) file into [Lichess.com](https://lichess.org/) from the clipboard.
-The program outputs the URL of the imported game so you can request computer analysis for all your games effortlessly and in a matter of seconds.
+The program outputs the URL of the imported game so you can request computer analysis for all your games effortlessly, in a few seconds.
 
 ## Why Use This Tool?
 
@@ -15,9 +15,9 @@ The program outputs the URL of the imported game so you can request computer ana
 
 ## Quick Install
 
-Don't worry, there is a [quick uninstall](#uninstall) as well 🪦
 
-Run this command to install the Lichess PGN Importer (always check scripts before running it! This one is pretty safe/simple):
+Run this command to install the Lichess PGN Importer  
+_(always check scripts before running it! This one is pretty simple and contains comments)_:
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/jeancsil/lichess/main/install.sh | bash
@@ -25,9 +25,9 @@ curl -sSL https://raw.githubusercontent.com/jeancsil/lichess/main/install.sh | b
 
 This script will:
 
-1. Check if the necessary executables are installed (`Docker`, `pbpaste`)
-2. Pull the Docker image
-3. Set up the `lichess` command for easy execution
+1. Check if the necessary executables are installed (`Docker`, `pbpaste` to copy from clipboard)
+2. Pull the Docker image containing the java application.
+3. Add a symlink to the `lichess` executable for convenience.
 
 After installation, make sure to set your Lichess API token as an [environment variable](#configuration).
 
