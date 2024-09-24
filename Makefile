@@ -1,5 +1,5 @@
 IMAGE_NAME = jeancsil/lichess
-VERSION = 1.0.0
+VERSION = 1.1.0
 
 default: help
 
@@ -8,13 +8,16 @@ default: help
 ##
 .PHONY: build # Builds the Docker image
 build:
-	@docker build -t $(IMAGE_NAME):$(VERSION) .
-	@docker tag $(IMAGE_NAME):$(VERSION) $(IMAGE_NAME):latest
+	@if ! docker buildx inspect multiarch-builder > /dev/null; then \
+		docker buildx create --use --name multiarch-builder; \
+	fi
+	@docker buildx inspect --bootstrap
+	@docker buildx build --platform linux/amd64,linux/arm64 -t $(IMAGE_NAME):$(VERSION) .
 
 .PHONY: publish # Publishes the Docker image
-publish: build
-	@docker push $(IMAGE_NAME):$(VERSION)
-	@docker push $(IMAGE_NAME):latest
+publish:
+	@docker buildx build --platform linux/amd64,linux/arm64 -t $(IMAGE_NAME):$(VERSION) --push .
+	@docker buildx imagetools create $(IMAGE_NAME):$(VERSION) -t $(IMAGE_NAME):latest
 	@echo "Docker image published: $(IMAGE_NAME):$(VERSION) and $(IMAGE_NAME):latest"
 
 ##
